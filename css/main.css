@@ -1,0 +1,45 @@
+/*Css*/
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    height: 100%;
+}
+/* Pirmo konteinerio fono spalva*/
+.bg{
+    background-color: #0f6674;
+}
+/*Antro konteinerio fono spalva*/
+.bg2 {
+    background-image: url("../img/bg.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+}
+/*Search pozicija*/
+.searchas{
+    position: relative;
+    top: 20px;
+}
+/*Miesto pavadinimo stilius*/
+.city{
+    font-size: 24px;
+    color: #f3f3f3;
+    margin-top: 10px;
+}
+/*Siandienos oras*/
+.todayWeather{
+    width: 460px;
+    border-top: 5px solid #b21f2d;
+    background-color: #f9f9f9;
+}
+.weekDay{
+    width: 150px;
+    border-bottom: 5px solid #b21f2d;
+    background-color: #f9f9f9;
+    border-left: 1px solid #909090;
+    float: left;
+}
