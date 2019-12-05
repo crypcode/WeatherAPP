@@ -36,10 +36,45 @@ html{
     border-top: 5px solid #b21f2d;
     background-color: #f9f9f9;
 }
+/*Savaites diena*/
 .weekDay{
     width: 150px;
     border-bottom: 5px solid #b21f2d;
     background-color: #f9f9f9;
     border-left: 1px solid #909090;
     float: left;
+}
+/*Valandinio konteineris*/
+.hourContainer > .col-sm-12{
+    overflow-x: auto;
+    overflow-y: hidden ;
+    white-space: nowrap;
+}
+.hourContainer > .col-sm-12 > .hourWeather{
+    display: inline-block;
+    float: none;
+    margin: 0;
+    padding: 0;
+}
+/*Valandinis oras*/
+.hourWeather{
+    width: 80px;
+    height: 400px;
+    padding: 5px;
+    display: inline-block;
+    border-bottom: 5px solid #b21f2d;
+    border-top: 5px solid #b21f2d;
+    background-color: #f9f9f9;
+    border-left: 1px solid #909090;
+    text-align: center;
+}
+/*Oru ikonos*/
+.fa-sun, .fa-tint, .fa-wind, .fa-cloud,
+.fa-smog, .fa-cloud-sun-rain, .fa-cloud-sun,
+.fa-cloud-showers-heavy, .fa-cloud-rain, .fa-cloud-moon-rain,
+.fa-snowflake, .fa-moon, .fa-bolt{
+    font-size: 20px;
+}
+.fa-tint{
+    padding-top: 160px;
 }
