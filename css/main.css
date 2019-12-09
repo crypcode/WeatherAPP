@@ -53,8 +53,6 @@ html{
 .hourContainer > .col-sm-12 > .hourWeather{
     display: inline-block;
     float: none;
-    margin: 0;
-    padding: 0;
 }
 /*Valandinis oras*/
 .hourWeather{
@@ -62,7 +60,7 @@ html{
     height: 400px;
     padding: 5px;
     display: inline-block;
-    border-bottom: 5px solid #b21f2d;
+    border-bottom: 1px solid #909090;
     border-top: 5px solid #b21f2d;
     background-color: #f9f9f9;
     border-left: 1px solid #909090;
@@ -78,3 +76,24 @@ html{
 .fa-tint{
     padding-top: 160px;
 }
+/*Scrollbar style*/
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f9f9f9;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #b21f2d;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9e1422;
+  }
