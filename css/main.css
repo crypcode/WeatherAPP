@@ -22,7 +22,7 @@ html{
 /*Search pozicija*/
 .searchas{
     position: relative;
-    top: 20px;
+    top: 5px;
 }
 /*Miesto pavadinimo stilius*/
 .city{
@@ -32,7 +32,7 @@ html{
 }
 /*Siandienos oras*/
 .todayWeather{
-    width: 460px;
+    width: 420px;
     border-top: 5px solid #b21f2d;
     background-color: #f9f9f9;
 }
@@ -107,4 +107,9 @@ h4{
    color: #f3f3f3;
    text-align: center;
    padding: 20px 0 10px 0;
+}
+@media (max-width: 575.98px) {
+    .todayWeather{
+        width: 70%;
+    }
 }
