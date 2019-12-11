@@ -6,12 +6,13 @@ async function getData(city){
 }
 
 
-async function showData(callback) {
+async function showData(callback,today) {
     const data = await getData('Kaunas');
     //console.log(data['forecastTimestamps'][0])
     // su let ar var neveikia
     Alldata = data['forecastTimestamps'];
-    console.log(Alldata);
+    //console.log(Alldata);
+    today();
     callback();
 
 }
@@ -48,10 +49,29 @@ async function showData(callback) {
        }
 
    }
+   function todayminmax() {
+    
+    let todaydata = Alldata.filter(function (item) {
+        return item.forecastTimeUtc.includes(formatd);
+    });
+    console.log(todaydata)
+    //isrenka didziausia tos dienos temperatura
+    const maxtemp = Math.max(...todaydata.map(o => o.airTemperature));
+    console.log(maxtemp)
+    //isrenka maziausia temp
+    const mintemp = Math.min(...todaydata.map(o => o.airTemperature));
+    console.log(mintemp)
+    //data dabartine
+    var currentDate = new Date()
+    var day = currentDate.getDate()
+    var month = currentDate.getMonth() + 1
+    var year = currentDate.getFullYear()
+    var formatd = year+"-"+month+"-"+day;
+    console.log(formatd)
+   }
 
 
-
-showData(createElements);
+showData(createElements, todayminmax);
 
 
 
