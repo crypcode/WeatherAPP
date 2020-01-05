@@ -17,22 +17,32 @@ async function showData(callback,today) {
     callback();
 }
    function createElements(){
-       for(let i=0;i<24;i++) {
+       let str;
+       for (let i = 0; i < 24; i++) {
            // Sukuria valandos duomenis
            const hourBlock = document.querySelector(".hourWeatherCont");
            const hourdiv = document.createElement("div");
            hourdiv.classList.add("hourWeather");
            hourBlock.appendChild(hourdiv);
 
+           //sukuria datos p
+           const date = document.createElement("p");
+           date.classList.add("dateHour");
+           hourdiv.append(date);
+           const str = Alldata[i]['forecastTimeUtc'];
+           let res2 = str.slice(5,10);
+           date.textContent = res2 + '';
+           //console.log(res2)
            //Sukuria laiko p
            const time = document.createElement("p");
            time.classList.add("time");
            hourdiv.append(time);
 
            // iskerpa is stringo valandas
-           let str = Alldata[i]['forecastTimeUtc'];
+           //let str = Alldata[i]['forecastTimeUtc'];
            let res = str.slice(-8, -3);
            time.textContent = res + '';
+           //console.log(res)
            //console.log(Alldata[i]['conditionCode']);
 
            // // Condition code ikonos
@@ -40,7 +50,11 @@ async function showData(callback,today) {
            weatherIcon.classList.add("weather-icon");
            weatherIcon.innerHTML = getWeatherIcon(Alldata[i]['conditionCode']);
            hourdiv.appendChild(weatherIcon);
-
+           // if(Alldata[i]['airTemperature']<40){
+           //     let pos = (Alldata[i]['airTemperature']+60);
+           //     weatherIcon.style.paddingTop = pos+"px";
+           //     console.log(pos)
+           // }
            //Sukuria temp p
            const temp = document.createElement("p");
            temp.classList.add("temp");
@@ -64,13 +78,17 @@ async function showData(callback,today) {
    //Sios dienos minimali ir maximali temperatura bei divas
    function todayminmax() {
        let todaydata = Alldata.filter(function (item) {
-           let currentDate = new Date();
-           let day = currentDate.getDate();
-           let month = currentDate.getMonth() + 1;
-           let year = currentDate.getFullYear();
-           let formatd = year + "-" + month + "-" + day;
-           return item.forecastTimeUtc.includes(formatd);
+           let currentDate3 = new Date();
+           let day3 = currentDate3.getDate();
+           let month3 = currentDate3.getMonth() + 1;
+           let year3 = currentDate3.getFullYear();
+           let monthfix2 = (month3<10) ? '0'+month3 : month3;
+           let dayfix2 = (day3<10) ? '0'+day3 : day3;
+           let formatd3 = year3 + "-" + monthfix2 + "-" + dayfix2;
+           //console.log(formatd3)
+           return item.forecastTimeUtc.includes(formatd3);
        });
+       //console.log(todaydata);
 
        //isrenka didziausia tos dienos temperatura
        const maxtemp = Math.max(...todaydata.map(o => o.airTemperature));
@@ -103,7 +121,14 @@ async function showData(callback,today) {
                let day2 = currentDate2.getDate() + k;
                let month2 = currentDate2.getMonth() + 1;
                let year2 = currentDate2.getFullYear();
-               let formatd2 = year2 + "-" + month2 + "-" + day2;
+               if(month2.length<2) {let month2 ='0'+month2;}
+               if(day2.length<2) {let day2 = '0'+day2;}
+               let dayfix = (day2<10) ?'0'+day2 : day2;
+               //console.log(dayfix)
+               let monthfix = (month2<10) ?'0'+month2 : month2;
+               //console.log(monthfix);
+               let formatd2 = year2 + "-" + monthfix + "-" + dayfix;
+               console.log(formatd2)
                return item2.forecastTimeUtc.includes(formatd2);
            });
            //isrenka didziausias savaites temperaturas

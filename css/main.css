@@ -42,7 +42,9 @@ html, body{
     border-bottom: 5px solid #b21f2d;
     background-color: #f9f9f9;
     border-left: 1px solid #909090;
-    float: left;
+    display: inline-block;
+    position: relative;
+    left: 90px;
     margin-bottom: 15px;
 }
 /*Valandinio konteineris*/
@@ -56,6 +58,9 @@ html, body{
     float: none;
 }
 /*Valandinis oras*/
+.dateHour{
+    margin: 3px;
+}
 .hourWeather{
     width: 80px;
     height: 400px;
@@ -112,5 +117,19 @@ h4{
 @media (max-width: 575.98px) {
     .todayWeather{
         width: 70%;
+    }
+    .weekDay{
+        left: 65px;
+        width:80%;
+    }
+}
+@media (max-width: 325.98px){
+    .weekDay{
+        left:30px;
+    }
+}
+@media (max-width: 1025px){
+    .todayWeather{
+        width: 250px;
     }
 }
